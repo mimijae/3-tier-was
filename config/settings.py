@@ -55,7 +55,7 @@ MIDDLEWARE = [
     'corsheaders.middleware.CorsMiddleware',
 ]
 CORS_ALLOWED_ORIGINS = [
-    "http://118.67.130.119/",
+    "http://118.67.130.119",
 ]
 
 ROOT_URLCONF = 'config.urls'
