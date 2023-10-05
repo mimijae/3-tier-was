@@ -77,10 +77,15 @@ WSGI_APPLICATION = 'config.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql', # 또는 사용하는 DB 엔진에 맞게 변경
+        'NAME': 'your_database_name',
+        'USER': 'your_database_user',
+        'PASSWORD': 'your_database_password',
+        'HOST': 'your_rds_endpoint',
+        'PORT': '5432', # PostgreSQL의 기본 포트. 사용하는 DB 엔진에 맞게 변경해야 합니다.
     }
 }
+
 
 
 # Password validation
