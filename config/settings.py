@@ -78,18 +78,6 @@ WSGI_APPLICATION = 'config.wsgi.application'
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
 # Postgres db 연결
-# DATABASES = {
-#     'default': {
-#         'ENGINE': os.environ.get("SQL_ENGINE", 'django.db.backends.sqlite3'),
-#         'NAME': os.environ.get('SQL_DATABASE', os.path.join(BASE_DIR, 'db.sqlite3')),
-#         'USER': os.environ.get('SQL_USER', 'user'),
-#         'PASSWORD': os.environ.get('SQL_PASSWORD', 'password'),
-#         'HOST': os.environ.get('SQL_HOST', 'localhost'),
-#         'PORT': os.environ.get("SQL_PORT", '5432'),
-#     }
-# }
-
-# MySql db 연결
 DATABASES = {
     'default': {
         'ENGINE': os.environ.get("SQL_ENGINE", 'django.db.backends.sqlite3'),
@@ -97,9 +85,24 @@ DATABASES = {
         'USER': os.environ.get('SQL_USER', 'user'),
         'PASSWORD': os.environ.get('SQL_PASSWORD', 'password'),
         'HOST': os.environ.get('SQL_HOST', 'localhost'),
-        'PORT': os.environ.get("SQL_PORT", '3306'),
+        'PORT': os.environ.get("SQL_PORT", '5432'),
+        'OPTIONS': {
+            'options': '-c search_path=thesis_was'
+        },
     }
 }
+
+# # MySql db 연결
+# DATABASES = {
+#     'default': {
+#         'ENGINE': os.environ.get("SQL_ENGINE", 'django.db.backends.sqlite3'),
+#         'NAME': os.environ.get('SQL_DATABASE', os.path.join(BASE_DIR, 'db.sqlite3')),
+#         'USER': os.environ.get('SQL_USER', 'user'),
+#         'PASSWORD': os.environ.get('SQL_PASSWORD', 'password'),
+#         'HOST': os.environ.get('SQL_HOST', 'localhost'),
+#         'PORT': os.environ.get("SQL_PORT", '3306'),
+#     }
+# }
 
 
 # Password validation
