@@ -1,5 +1,9 @@
 ﻿# thesis-test-was
 
+## db 마이그레이트
+```bash
+docker-compose run web python manage.py migrate
+```
 ## 데이터 삽입 명령어
 ```bash
 sudo docker-compose exec web python manage.py seed_fruits
