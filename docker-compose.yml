@@ -3,10 +3,10 @@ version: '3'
 services:
   web:
     build: .
-    command: ["python", "manage.py", "runserver", "0.0.0.0:8000"]
+    command: ["gunicorn", "myproject.wsgi:application", "--bind", "0.0.0.0:8000"]
     volumes:
       - .:/usr/src/app
     ports:
       - "8000:8000"
-    environment:
-      - DEBUG=1 # 개발 환경에서만 사용하세요.
+    env_file:
+      - .env.prod
